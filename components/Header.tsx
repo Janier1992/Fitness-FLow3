@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const HomeIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -36,7 +36,6 @@ const BellIcon = () => (
     </svg>
 );
 
-
 const navItems = [
     { name: 'Inicio', icon: <HomeIcon /> },
     { name: 'Ejercicios', icon: <ExercisesIcon /> },
@@ -46,8 +45,12 @@ const navItems = [
     { name: 'AI Coach', icon: <AiCoachIcon /> },
 ];
 
-export const Header: React.FC = () => {
-    const [activeItem, setActiveItem] = useState('Ejercicios');
+interface HeaderProps {
+  activeItem: string;
+  onNavigate: (itemName: string) => void;
+}
+
+export const Header: React.FC<HeaderProps> = ({ activeItem, onNavigate }) => {
 
     return (
         <header className="bg-white/80 backdrop-blur-lg shadow-sm w-full sticky top-0 z-50 border-b border-slate-200">
@@ -65,7 +68,7 @@ export const Header: React.FC = () => {
                             {navItems.map((item) => (
                                 <button
                                     key={item.name}
-                                    onClick={() => setActiveItem(item.name)}
+                                    onClick={() => onNavigate(item.name)}
                                     className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ease-in-out ${
                                         activeItem === item.name
                                             ? 'bg-green-100 text-green-800 shadow-sm'

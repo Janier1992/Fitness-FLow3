@@ -41,4 +41,52 @@ export interface LibraryExercise {
   caloriesPerMin: number;
   isFavorite: boolean;
   isPremium?: boolean;
+  category: string;
+  equipment: string;
+  instructions: string[];
+}
+
+export interface ClassSchedule {
+  day: string;
+  time: string;
+}
+
+export interface GroupClass {
+  id: number;
+  name: string;
+  description: string;
+  imageUrl: string;
+  difficulty: ExerciseDifficulty;
+  category: string;
+  instructor: string;
+  capacity: number;
+  duration: number; // in minutes
+  schedule: ClassSchedule[];
+  price?: number; // Optional price
+}
+
+// Types for MyProgress page
+export interface WeeklyVolumeData {
+    week: string;
+    volume: number;
+}
+
+export interface PersonalRecord {
+    exercise: string;
+    weight: number;
+    date: string;
+}
+
+export interface Achievement {
+    id: string;
+    name: string;
+    description: string;
+    icon: string;
+    unlocked: boolean;
+}
+
+// Types for AI Coach
+export interface ChatMessage {
+    sender: 'user' | 'ai';
+    text: string;
 }

@@ -113,3 +113,32 @@ export const generateWorkoutPlan = async (profile: UserProfile): Promise<Workout
         throw new Error("No se pudo generar el plan de entrenamiento desde el servicio de IA.");
     }
 };
+
+export const getAICoachResponse = async (prompt: string): Promise<string> => {
+    const systemInstruction = `
+        Eres el AI Coach de FitnessFlow Pro, un entrenador personal y nutricionista experto de Medellín, Colombia.
+        Tu objetivo es proporcionar consejos claros, seguros, motivadores y altamente personalizados.
+        - Responde siempre en español.
+        - Sé amigable y alentador. Usa emojis para hacer la conversación más cercana.
+        - Basa tus respuestas en principios de ciencia del ejercicio y nutrición.
+        - Si te piden una rutina, da un ejemplo conciso.
+        - Si te piden consejos de nutrición, ofrece sugerencias prácticas y saludables.
+        - Mantén las respuestas relativamente cortas y fáciles de leer. Usa listas o viñetas si es necesario.
+        - No des consejos médicos. Si la pregunta es sobre una lesión o condición médica, recomienda consultar a un médico o fisioterapeuta.
+    `;
+
+    try {
+         const response = await ai.models.generateContent({
+            model: "gemini-2.5-flash",
+            contents: prompt,
+            config: {
+                systemInstruction: systemInstruction,
+                temperature: 0.8,
+            }
+        });
+        return response.text;
+    } catch (error) {
+        console.error("Error calling Gemini API for AI Coach:", error);
+        return "Lo siento, parece que estoy teniendo problemas para conectarme en este momento. Por favor, inténtalo de nuevo más tarde.";
+    }
+};

@@ -11,6 +11,14 @@ export const EXERCISE_DATA: LibraryExercise[] = [
         duration: 40,
         caloriesPerMin: 10,
         isFavorite: true,
+        category: 'CARDIO',
+        equipment: 'Bicicleta estática',
+        instructions: [
+            'Ajusta la altura del asiento y el manillar.',
+            'Mantén la espalda recta y los hombros relajados.',
+            'Pedalea a un ritmo constante.',
+            'Varía la resistencia según tu nivel de condición física.'
+        ]
     },
     {
         id: 2,
@@ -23,6 +31,14 @@ export const EXERCISE_DATA: LibraryExercise[] = [
         caloriesPerMin: 15,
         isFavorite: false,
         isPremium: true,
+        category: 'CUERPO COMPLETO',
+        equipment: 'Peso corporal',
+        instructions: [
+            'Empieza de pie, luego ponte en cuclillas y coloca las manos en el suelo.',
+            'Lleva los pies hacia atrás a una posición de plancha.',
+            'Realiza una flexión de pecho.',
+            'Vuelve a la posición de cuclillas y salta explosivamente.'
+        ]
     },
     {
         id: 3,
@@ -34,6 +50,14 @@ export const EXERCISE_DATA: LibraryExercise[] = [
         duration: 30,
         caloriesPerMin: 12,
         isFavorite: true,
+        category: 'CARDIO',
+        equipment: 'Cinta de correr',
+        instructions: [
+            'Selecciona la velocidad e inclinación deseadas.',
+            'Mantén una postura erguida mientras corres.',
+            'Usa los brazos para impulsarte.',
+            'No te agarres a los pasamanos constantemente.'
+        ]
     },
     {
         id: 4,
@@ -46,6 +70,14 @@ export const EXERCISE_DATA: LibraryExercise[] = [
         caloriesPerMin: 5,
         isFavorite: false,
         isPremium: true,
+        category: 'FUERZA',
+        equipment: 'Mancuernas',
+        instructions: [
+            'Sostén una mancuerna en cada mano con los brazos extendidos.',
+            'Mantén los codos pegados al cuerpo.',
+            'Flexiona los codos para levantar las pesas hacia los hombros.',
+            'Baja las pesas de forma controlada.'
+        ]
     },
     {
         id: 5,
@@ -57,6 +89,14 @@ export const EXERCISE_DATA: LibraryExercise[] = [
         duration: 3,
         caloriesPerMin: 8,
         isFavorite: false,
+        category: 'FUERZA',
+        equipment: 'Barra',
+        instructions: [
+            'Inclina el torso hacia adelante manteniendo la espalda recta.',
+            'Sujeta la barra con un agarre ligeramente más ancho que los hombros.',
+            'Tira de la barra hacia la parte baja del pecho.',
+            'Aprieta los músculos de la espalda en la parte superior del movimiento.'
+        ]
     },
     {
         id: 6,
@@ -69,6 +109,14 @@ export const EXERCISE_DATA: LibraryExercise[] = [
         caloriesPerMin: 6,
         isFavorite: false,
         isPremium: true,
+        category: 'FUERZA',
+        equipment: 'Peso corporal',
+        instructions: [
+            'Coloca las manos un poco más anchas que los hombros.',
+            'Mantén el cuerpo en línea recta desde la cabeza hasta los talones.',
+            'Baja el pecho hasta que esté cerca del suelo.',
+            'Empuja hacia arriba hasta que los brazos estén completamente extendidos.'
+        ]
     },
      {
         id: 7,
@@ -80,6 +128,14 @@ export const EXERCISE_DATA: LibraryExercise[] = [
         duration: 4,
         caloriesPerMin: 10,
         isFavorite: true,
+        category: 'FUERZA',
+        equipment: 'Barra',
+        instructions: [
+            'Coloca la barra sobre los trapecios, no en el cuello.',
+            'Mantén el pecho erguido y la espalda recta.',
+            'Baja hasta que los muslos estén paralelos al suelo o más abajo.',
+            'Empuja a través de los talones para volver a la posición inicial.'
+        ]
     },
     {
         id: 8,
@@ -91,6 +147,14 @@ export const EXERCISE_DATA: LibraryExercise[] = [
         duration: 1,
         caloriesPerMin: 4,
         isFavorite: false,
+        category: 'CORE',
+        equipment: 'Peso corporal',
+        instructions: [
+            'Apóyate en los antebrazos y las puntas de los pies.',
+            'Mantén el cuerpo en una línea recta de la cabeza a los talones.',
+            'Contrae los abdominales y los glúteos.',
+            'Evita que las caderas se caigan o se eleven demasiado.'
+        ]
     },
     {
         id: 9,
@@ -102,6 +166,14 @@ export const EXERCISE_DATA: LibraryExercise[] = [
         duration: 5,
         caloriesPerMin: 12,
         isFavorite: false,
+        category: 'FUERZA',
+        equipment: 'Barra',
+        instructions: [
+            'Mantén la espalda recta durante todo el levantamiento.',
+            'La barra debe permanecer cerca del cuerpo.',
+            'Inicia el movimiento empujando con las piernas.',
+            'Extiende completamente las caderas y las rodillas en la parte superior.'
+        ]
     },
     {
         id: 10,
@@ -113,6 +185,14 @@ export const EXERCISE_DATA: LibraryExercise[] = [
         duration: 3,
         caloriesPerMin: 7,
         isFavorite: true,
+        category: 'FUERZA',
+        equipment: 'Barra y banco',
+        instructions: [
+            'Acuéstate en el banco con los pies firmemente en el suelo.',
+            'Sujeta la barra con un agarre un poco más ancho que los hombros.',
+            'Baja la barra de forma controlada hasta el pecho.',
+            'Empuja la barra hacia arriba explosivamente hasta bloquear los codos.'
+        ]
     },
 ];
 

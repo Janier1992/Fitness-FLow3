@@ -3,6 +3,7 @@ import { type LibraryExercise, type ExerciseDifficulty } from '../types';
 
 interface ExerciseCardProps {
   exercise: LibraryExercise;
+  onCardClick: () => void;
 }
 
 const HeartIcon = ({ filled }: { filled: boolean }) => (
@@ -23,9 +24,11 @@ const difficultyStyles: Record<ExerciseDifficulty, string> = {
     Avanzado: 'bg-red-100 text-red-800',
 };
 
-export const ExerciseCard: React.FC<ExerciseCardProps> = ({ exercise }) => {
+export const ExerciseCard: React.FC<ExerciseCardProps> = ({ exercise, onCardClick }) => {
     return (
-        <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+        <button 
+            onClick={onCardClick}
+            className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1 text-left w-full">
             <div className="relative">
                 <img src={exercise.imageUrl} alt={exercise.name} className="w-full h-48 object-cover" />
                 <span className={`absolute top-2 right-2 px-2 py-1 text-xs font-semibold rounded-full ${difficultyStyles[exercise.difficulty]}`}>
@@ -60,6 +63,6 @@ export const ExerciseCard: React.FC<ExerciseCardProps> = ({ exercise }) => {
                     <span>~{exercise.caloriesPerMin}/min</span>
                 </div>
             </div>
-        </div>
+        </button>
     );
 };

@@ -2,9 +2,10 @@ import React, { useState, useMemo } from 'react';
 import { EXERCISE_DATA, CATEGORIES, DIFFICULTIES } from '../data/exercises';
 import { ExerciseCard } from '../components/ExerciseCard';
 import { type LibraryExercise, type ExerciseDifficulty } from '../types';
+import { ExerciseModal } from '../components/ExerciseModal';
 
 const SearchIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <svg xmlns="http://www.w.org/2000/svg" className="h-5 w-5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
     </svg>
 );
@@ -13,6 +14,7 @@ export const ExerciseLibrary: React.FC = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('Todas');
     const [selectedDifficulty, setSelectedDifficulty] = useState('Todas');
+    const [selectedExercise, setSelectedExercise] = useState<LibraryExercise | null>(null);
 
     const filteredExercises = useMemo(() => {
         return EXERCISE_DATA.filter(exercise => {
@@ -75,13 +77,24 @@ export const ExerciseLibrary: React.FC = () => {
             {filteredExercises.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                     {filteredExercises.map(exercise => (
-                        <ExerciseCard key={exercise.id} exercise={exercise} />
+                        <ExerciseCard 
+                            key={exercise.id} 
+                            exercise={exercise} 
+                            onCardClick={() => setSelectedExercise(exercise)}
+                        />
                     ))}
                 </div>
             ) : (
                 <div className="text-center py-16">
                     <p className="text-slate-500 text-lg">No se encontraron ejercicios que coincidan con tu búsqueda.</p>
                 </div>
+            )}
+
+            {selectedExercise && (
+                <ExerciseModal 
+                    exercise={selectedExercise} 
+                    onClose={() => setSelectedExercise(null)} 
+                />
             )}
         </div>
     );
