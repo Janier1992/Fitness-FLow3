@@ -1,6 +1,8 @@
 import React from 'react';
 import { PROGRESS_DATA } from '../data/progress';
 import { WeeklyVolumeChart } from '../components/charts/WeeklyVolumeChart';
+import { MuscleGroupFocusChart } from '../components/charts/MuscleGroupFocusChart';
+import { User } from '../App';
 
 const KpiCard: React.FC<{ icon: string; value: string; label: string; }> = ({ icon, value, label }) => (
     <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
@@ -14,8 +16,12 @@ const KpiCard: React.FC<{ icon: string; value: string; label: string; }> = ({ ic
     </div>
 );
 
-export const MyProgress: React.FC = () => {
-    const { kpis, weeklyVolume, personalRecords, achievements } = PROGRESS_DATA;
+interface MyProgressProps {
+    user: User;
+}
+
+export const MyProgress: React.FC<MyProgressProps> = ({ user }) => {
+    const { kpis, weeklyVolume, personalRecords, achievements, muscleFocus } = PROGRESS_DATA;
 
     return (
         <div className="container mx-auto px-4 py-8 md:py-12 space-y-8">
@@ -44,6 +50,19 @@ export const MyProgress: React.FC = () => {
                             <WeeklyVolumeChart data={weeklyVolume} />
                         </div>
                     </div>
+
+                    {/* Premium Feature: Muscle Focus */}
+                    {user.plan === 'premium' && (
+                        <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                             <div className="flex items-center gap-2 mb-4">
+                                <h2 className="text-xl font-bold text-slate-800">Enfoque por Grupo Muscular</h2>
+                                <span className="text-xs font-bold bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">PREMIUM</span>
+                            </div>
+                            <div className="h-64">
+                                <MuscleGroupFocusChart data={muscleFocus} />
+                            </div>
+                        </div>
+                    )}
 
                     {/* Personal Records */}
                     <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">

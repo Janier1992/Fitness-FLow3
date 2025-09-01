@@ -26,4 +26,11 @@ export const PROGRESS_DATA = {
         { id: '100k_volume', name: 'Titán de Hierro', description: 'Levantaste 100,000 kg en total.', icon: '🌋', unlocked: false },
         { id: 'streak_5', name: 'Imparable', description: 'Racha de 5 días de entrenamiento.', icon: '🔥', unlocked: true },
     ] as Achievement[],
+    muscleFocus: [
+        { name: 'Pecho', value: 25 },
+        { name: 'Espalda', value: 20 },
+        { name: 'Piernas', value: 30 },
+        { name: 'Hombros', value: 15 },
+        { name: 'Brazos', value: 10 },
+    ]
 };
